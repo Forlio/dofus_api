@@ -1,0 +1,13 @@
+{
+    "http" : {
+        "index" : "index.html",
+        "port" : 2311,
+        "www" : "./www/",
+        "mime" : {
+            "css" : "text/css"           
+        },
+        "error" : {
+            "404" : "404.html"
+        }
+    }
+}
