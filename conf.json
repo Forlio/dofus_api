@@ -4,7 +4,9 @@
         "port" : 2311,
         "www" : "./www/",
         "mime" : {
-            "css" : "text/css"           
+            "css" : "text/css",
+            "text" : "text/plain",
+            "html" : "text/html"
         },
         "error" : {
             "404" : "404.html"

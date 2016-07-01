@@ -13,13 +13,13 @@ function onRequest (request, res) {
     var extension = pathName.split('.').pop();
     
     //default page if not specified
-    pathName = (pathName == "/") ? conf.http.index : pathname;
-    
+    pathName = (pathName == "/") ? conf.http.index : pathName;
+    console.log("Going to" + pathName);
 	res.writeHead(200, {'Content-Type' : conf.http.mime[extension]});
 
     try {
         res.end(fs.readFileSync(conf.http.www + pathName));
-    } catch (ex) {
+    } catch (ex) { // print a special page 404
         res.writeHead(200, {'Content-Type' : conf.http.mime['text']});
         res.end(ex+fs.readFileSync(conf.http.error['404']));
     }
