@@ -2,6 +2,7 @@ var conf = require('./conf.json');
 var http = require('http');
 var url = require('url');
 var fs = require('fs');
+var engine = require('engine');
 
 http.createServer(onRequest).listen(conf.http.port);
 
@@ -15,6 +16,11 @@ function onRequest (request, res) {
     //default page if not specified
     pathName = (pathName == "/") ? conf.http.index : pathName;
     console.log("Going to" + pathName);
+    
+    //startlistener
+    var temp = engine.watchFolder(conf.externalChatFolder);
+    
+    
 	res.writeHead(200, {'Content-Type' : conf.http.mime[extension]});
 
     try {
